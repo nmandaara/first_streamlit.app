@@ -8,7 +8,7 @@ my_cur = my_cnx.cursor()
 
 # run a snowflake query and put it all in a var called my_catalog
 my_cur.execute("select current_account()")
-streamlit.write(my_cur)
+streamlit.write(my_cur.fetchall())
 my_catalog = my_cur.fetchall()
 
 # put the dafta into a dataframe
