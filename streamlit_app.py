@@ -7,7 +7,7 @@ my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
 
 # run a snowflake query and put it all in a var called my_catalog
-my_cur.execute("select current_account()")
+my_cur.execute("SELECT CURRENT_WAREHOUSE(), CURRENT_DATABASE(), CURRENT_SCHEMA();")
 streamlit.write(my_cur.fetchall())
 my_catalog = my_cur.fetchall()
 
